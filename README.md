@@ -1,2 +1,0 @@
-# Fiverr-Clone
-Fiverr Clone
