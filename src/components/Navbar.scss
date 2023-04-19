@@ -5,6 +5,11 @@
   background-color: #113118;
   color: white;
 
+  &.active {
+    background-color: white;
+    color: black;
+  }
+
   .container {
     width: 1400px;
     display: flex;
