@@ -28,7 +28,7 @@ const Navbar = () => {
           <hr />
           <div className="menu">
             <span>Test</span>
-            <span>Test2</span>
+            <span>Test 22</span>
           </div>
         </>
         )}
