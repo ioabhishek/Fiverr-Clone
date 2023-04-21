@@ -4,6 +4,9 @@
   align-items: center;
   background-color: #113118;
   color: white;
+  transition: 0.5s all ease;
+  position: sticky;
+  top: 0;
 
   &.active {
     background-color: white;
