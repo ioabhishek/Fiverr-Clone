@@ -1,14 +1,31 @@
-import React from "react";
-import "./Gig.scss";
-import { Slider } from "infinite-react-carousel/lib";
+import React from "react"
+import "./Gig.scss"
+import { Slider } from "infinite-react-carousel/lib"
+import { useQuery } from "@tanstack/react-query"
+import { useParams } from "react-router-dom"
+import newRequest from "../../utils/newRequest"
 
 function Gig() {
+  const { id } = useParams()
+
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ["gigs"],
+    queryFn: () =>
+      newRequest.get(`/gigs/single/${id}`).then((res) => {
+        return res.data
+      }),
+  })
+
+  console.log(data.title)
+
   return (
     <div className="gig">
       <div className="container">
         <div className="left">
-          <span className="breadcrumbs">Liverr > Graphics & Design ></span>
-          <h1>I will create ai generated art for you</h1>
+          <span className="breadcrumbs">
+            Fiverr {">"} Graphics & Design {">"}
+          </span>
+          <h1>{data.title}</h1>
           <div className="user">
             <img
               className="pp"
@@ -220,11 +237,11 @@ function Gig() {
                 <span>5</span>
               </div>
               <p>
-                Amazing work! Communication was
-                amazing, each and every day he sent me images that I was free to
-                request changes to. They listened, understood, and delivered
-                above and beyond my expectations. I absolutely recommend this
-                gig, and know already that Ill be using it again very very soon
+                Amazing work! Communication was amazing, each and every day he
+                sent me images that I was free to request changes to. They
+                listened, understood, and delivered above and beyond my
+                expectations. I absolutely recommend this gig, and know already
+                that Ill be using it again very very soon
               </p>
               <div className="helpful">
                 <span>Helpful?</span>
@@ -277,7 +294,7 @@ function Gig() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Gig;
+export default Gig
