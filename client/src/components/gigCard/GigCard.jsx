@@ -1,3 +1,4 @@
+import React from "react"
 import "./GigCard.scss"
 import { Link } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
@@ -11,7 +12,6 @@ const GigCard = ({ item }) => {
         return res.data
       }),
   })
-
   return (
     <Link to={`/gig/${item._id}`} className="link">
       <div className="gigCard">
